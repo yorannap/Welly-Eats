@@ -1,38 +1,87 @@
 <template>
-  <div id="map"></div>
+  <div>
+    <div v-for="place in Places" :key="place.name">
+      <h2>{{ place.name }}</h2>
+      <p>{{ place.address }}</p>
+      <p>{{ place.phone }}</p>
+      <p>Rating: {{ place.rating }}</p>
+      <p>Open? {{ place.isOpen }}</p>
+    </div>
+    <div id="map"></div>
+  </div>
 </template>
 
 <script>
 //import { google } from 'googleapis';
 
 export default {
-  name: 'IndexPage',
+  data() {
+    return {
+      Places: [
+        {
+          name: 'Dragonfly Wellington',
+          address: null,
+          rating: null,
+          phone: null,
+          isOpen: null
+        },
+        {
+          name: 'Night and Day Cuba Street',
+          address: null,
+          rating: null,
+          phone: null,
+          isOpen: null
+        },
+        {
+          name: 'Soulshack Wellington',
+          address: null,
+          rating: null,
+          phone: null,
+          isOpen: null
+        }
+      ],
+      service: null,
+      serviceLoaded: false,
+      PlaceDetailFields: ['name', 'rating', 'formatted_phone_number', 'formatted_address', 'opening_hours', 'utc_offset_minutes'],
+      PlaceSearchFields: ['name', 'place_id'],
+      PlaceRequest: { 
+        query: 'Wellington Trawling Company Cuba',
+        fields: ['name', 'place_id'],
+      }
+    }
+  },
   methods: {
     initMap() {
-      var sydney = new google.maps.LatLng(-33.867, 151.195);
-      var infowindow = new google.maps.InfoWindow();
-      console.log(sydney) 
-      console.log(infowindow) 
-
-      let map = new google.maps.Map(
-          document.getElementById('map'), {center: sydney, zoom: 15});
-
-      var request = {
-        query: 'Museum of Contemporary Art Australia',
-        fields: ['name', 'geometry'],
-      };
-
-      var service = new google.maps.places.PlacesService(map);
-
-      service.findPlaceFromQuery(request, function(results, status) {
-        
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-          map.setCenter(results[0].geometry.location);
-        }
+      this.service = new google.maps.places.PlacesService(map);
+      this.serviceLoaded = true;
+      this.findPlaces();
+    },
+    findPlaces() {
+      this.Places.forEach((place, index) => {
+        this.service.findPlaceFromQuery({ query: place.name, fields: this.PlaceSearchFields }, (results, status) => {
+          this.queryPlace(results, status, index)
+        });
       });
+    },
+    queryPlace(results, status, index) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        this.service.getDetails({
+          placeId: results[0].place_id,
+          fields: this.PlaceDetailFields
+        }, (results, status) => {
+          this.getPlaceDetails(results, status, index)
+        });
+      }
+    },
+    getPlaceDetails(place, status, index) {
+      if (status == google.maps.places.PlacesServiceStatus.OK && this.serviceLoaded === true) {
+        console.log(place)
+        this.Places[index].name = place.name
+        this.Places[index].address = place.formatted_address
+        this.Places[index].rating = place.rating
+        this.Places[index].phone = place.formatted_phone_number
+        this.Places[index].isOpen = place.opening_hours.isOpen()
+      }
     }
   },
   head () {
@@ -48,15 +97,9 @@ export default {
     }
   },
   mounted() {
-    //const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
-        //const sheets = google.sheets({ version: 'v4', auth });
-    console.log('blah')
   }
 }
 </script>
 
 <style>
-#map {
-  height: 80vh;
-}
 </style>
