@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Dragonfly",
+    "Description": "Some description to describe the best aspects of this place.",
+    "FeaturedImage": "/images/dragonfly.jpeg",
+    "IsOpen": true,
+    "Rating": "4.5",
+    "Website": "https://google.com",
+    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
+  },
+  {
+    "Name": "Chow",
+    "Description": "Some description to describe the best aspects of this place.",
+    "FeaturedImage": "/images/chow.jpeg",
+    "IsOpen": true,
+    "Rating": "4.5",
+    "Website": "https://google.com",
+    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
+  }
+]

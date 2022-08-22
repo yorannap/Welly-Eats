@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div v-for="place in Places" :key="place.name">
-      <h2>{{ place.name }}</h2>
-      <p>{{ place.address }}</p>
-      <p>{{ place.phone }}</p>
-      <p>Rating: {{ place.rating }}</p>
-      <p>Open? {{ place.isOpen }}</p>
+    <div v-for="place in getPlaces" :key="place.Name">
+      <img :src="place.FeaturedImage" :alt="place.Name">
+      <h2>{{ place.Name }}</h2>
+      <p>{{ place.Description }}</p>
+      <p>{{ place.Address }}</p>
+      <p>Rating: {{ place.Rating }}</p>
+      <p>Open? {{ place.IsOpen }}</p>
     </div>
     <div id="map"></div>
   </div>
@@ -13,10 +14,12 @@
 
 <script>
 //import { google } from 'googleapis';
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
+      places: null,
       Places: [
         {
           name: 'Dragonfly Wellington',
@@ -49,6 +52,11 @@ export default {
         fields: ['name', 'place_id'],
       }
     }
+  },
+  computed: {
+    ...mapGetters([
+      "getPlaces"
+    ])
   },
   methods: {
     initMap() {
@@ -91,12 +99,13 @@ export default {
           src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCGrczT9eisWiib5az-aMpzJDwg5MBimBE&libraries=places',
           defer: true,
           async: true,
-          callback: () => { this.initMap() } 
+          callback: () => { /* this.initMap() */ } 
         }
       ]
     }
   },
   mounted() {
+    this.$store.dispatch("init");
   }
 }
 </script>
