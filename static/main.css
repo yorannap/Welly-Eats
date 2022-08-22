@@ -1,0 +1,68 @@
+/***************************/
+/* VARIABLES */
+/***************************/
+
+.light-mode {
+  --color-primary: #1a1a1a;
+  --bg-primary: #fffbf5;
+  --bg-text-color: #473126;
+  --shadow-color: rgba(71, 49, 38, 0.15);
+}
+
+.dark-mode {
+  --color-primary: #fff;
+  --bg-primary: #1a1a1a;
+  --bg-text-color: #ffffff;
+  --shadow-color: rgba(71, 49, 38, 0.15);
+}
+
+html {
+  --transition-speed: 0.5s;
+  --transition: 
+    color var(--transition-speed), 
+    fill var(--transition-speed), 
+    stroke var(--transition-speed), 
+    background-color var(--transition-speed), 
+    box-shadow var(--transition-speed);
+}
+
+/***************************/
+/* MAIN */
+/***************************/
+
+*, body, div, :after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-drag: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  transition: var(--transition);
+  font-family: sofia-pro, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  /* overscroll-behavior: none; */
+}
+
+img {
+  width: 100%;
+  border-radius: 1em;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ol, li {
+  color: var(--color-primary);
+  transition: var(--transition);
+}
+
+h2 {
+  font-family: warnock-pro-display, serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 3.75em;
+  line-height: 1em;
+  text-align: center;
+}
