@@ -4,14 +4,34 @@
       <p class="subtitle">Wellington Eats</p>
       <h1 class="title">What's the mood?</h1>
       <div class="search">
-        <input type="text" placeholder="Search...">
-        <div class="dice">
+        <input 
+          type="Search" 
+          aria-label="Search place name or address..." 
+          placeholder="Search place name or address..."
+          :value="getFilterSearchTerm"
+          @input="handleSearch"
+        >
+        <div class="dice" @click="rollDice">
           <img src="/icons/dice.svg" alt="Roll dice">
         </div>
       </div>
+      <div class="tags">
+        <filter-tag 
+          v-for="(tag, id) in getAllTags" :key="id"
+          :PlaceTag="tag"
+        ></filter-tag>
+      </div>
+      <div class="order">
+        <label for="order">Order by</label>
+        <select name="order" id="order" @change="handleOrder($event.target.value)">
+          <option value="Highest rating">Highest rating</option>
+          <option value="Name">Name</option>
+        </select>
+      </div>
+      <filter-summary></filter-summary>
     </div>
-    <div id="results">
-      <place-card v-for="(place, id) in getPlaces" :key="id" :place="place"></place-card>
+    <div class="results">
+      <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place"></place-card>
     </div>
     <div id="map"></div>
   </div>
@@ -21,10 +41,14 @@
 //import { google } from 'googleapis';
 import { mapGetters } from "vuex";
 import PlaceCard from '../components/PlaceCard.vue'
+import FilterTag from '../components/FilterTag.vue'
+import FilterSummary from '../components/FilterSummary.vue'
 
 export default {
   components: {
-    PlaceCard
+    PlaceCard,
+    FilterTag,
+    FilterSummary
   },
   data() {
     return {
@@ -64,10 +88,19 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getPlaces"
+      "getFilteredPlaces", "getFilterSearchTerm", "getAllTags", "getActiveTags"
     ])
   },
   methods: {
+    handleSearch(e) {
+      this.$store.dispatch('filterSearch', e.target.value)
+    },
+    handleOrder(order) {
+      this.$store.dispatch('filterOrder', order)
+    },
+    rollDice() {
+      this.$store.dispatch('rollDice')
+    },
     initMap() {
       this.service = new google.maps.places.PlacesService(map);
       this.serviceLoaded = true;

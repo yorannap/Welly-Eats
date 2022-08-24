@@ -5,7 +5,8 @@
 html {
   --color-primary: #222222;
   --color-highlight: #FEBD2F;
-  --color-grey: #B1B1B1;
+  --color-grey: #8a8a8a;
+  --color-grey-light: #eeeeee;
   --shadow-primary: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
   --border-radius-l: 40px;
   --border-radius-m: 20px;
@@ -169,7 +170,7 @@ div.dice img {
 
 /*** RESULTS ***/
 
-#results {
+.results {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

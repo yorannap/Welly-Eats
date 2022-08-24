@@ -4,8 +4,13 @@
     "Description": "Some description to describe the best aspects of this place.",
     "FeaturedImage": "/images/dragonfly.jpeg",
     "IsOpen": true,
-    "Rating": "4.5",
+    "Rating": "1.5",
     "Website": "https://google.com",
+    "Tags": [
+      "Asian",
+      "Mexican",
+      "Dinner"
+    ],
     "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
   },
   {
@@ -15,7 +20,12 @@
     "IsOpen": false,
     "Rating": "4.5",
     "Website": "https://google.com",
-    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
+    "Tags": [
+      "Dine in",
+      "Bar",
+      "Lounge"
+    ],
+    "Address": "70 Victoria Street, Te Aro, Wellington 6011"
   },
   {
     "Name": "Soulshack",
@@ -24,24 +34,32 @@
     "IsOpen": true,
     "Rating": "4.5",
     "Website": "https://google.com",
+    "Tags": [
+      "Lounge"
+    ],
     "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
   },
   {
-    "Name": "Chow",
+    "Name": "Chows",
     "Description": "Some description to describe the best aspects of this place.",
     "FeaturedImage": "/images/chow.jpeg",
     "IsOpen": false,
-    "Rating": "4.5",
+    "Rating": "2.5",
     "Website": "https://google.com",
+    "Tags": [
+      "Mexican",
+      "Dinner"
+    ],
     "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
   },
   {
-    "Name": "Soulshack",
+    "Name": "Soulshacks",
     "Description": "Some description to describe the best aspects of this place.",
     "FeaturedImage": "/images/soulshack.jpeg",
     "IsOpen": true,
-    "Rating": "4.5",
+    "Rating": "4.8",
     "Website": "https://google.com",
+    "Tags": [],
     "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
   }
 ]

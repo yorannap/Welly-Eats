@@ -8,6 +8,9 @@
       <place-rating :Rating="place.Rating"></place-rating>
     </div>
     <p>{{ place.Description }}</p>
+    <div class="tags">
+      <filter-tag v-for="(tag, id) in place.Tags" :key="id" :PlaceTag="tag"></filter-tag>
+    </div>
     <a :href="place.Website" class="button" target="_blank">More details</a>
   </div>
 </template>
@@ -17,6 +20,7 @@ import IsOpen from '../components/IsOpen.vue'
 import PlaceRating from '../components/PlaceRating.vue'
 import PlaceImage from '../components/PlaceImage.vue'
 import PlacePin from '../components/PlacePin.vue'
+import FilterTag from '../components/FilterTag.vue'
 
 export default {
   props: {
@@ -26,7 +30,8 @@ export default {
     IsOpen,
     PlaceRating,
     PlaceImage,
-    PlacePin
+    PlacePin,
+    FilterTag
   }
 };
 </script>
@@ -58,5 +63,9 @@ export default {
 .details div {
   display: inline;
   color: var(--color-grey);
+}
+
+.tags {
+  margin-top: 10px;
 }
 </style>
