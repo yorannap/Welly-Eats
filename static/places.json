@@ -38,5 +38,14 @@
       "Mexican",
       "Dinner"
     ]
+  },
+  {
+    "PlaceId": "ChIJ1eTz41-vOG0Rf6_yfnJjR40",
+    "Name": "Dirty Burger",
+    "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
+    "Tags": [
+      "Mexican",
+      "Dinner"
+    ]
   }
 ]
