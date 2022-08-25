@@ -1,5 +1,5 @@
 <template>
-  <a class="pin" :href="`https://maps.google.com/?q=${PlaceName}`" target="_blank">
+  <a class="pin" :href="`https://maps.google.com/?q=${PlaceName}`" target="_blank" :title="`Get directions for ${PlaceName}`">
     <img src="/icons/pin.svg" alt="Get directions">
   </a>
 </template>

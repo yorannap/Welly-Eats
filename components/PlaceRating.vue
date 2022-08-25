@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    Rating: String
+    Rating: Number
   },
 };
 </script>

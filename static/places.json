@@ -1,65 +1,42 @@
 [
   {
+    "PlaceId": "ChIJ6fX4gtCvOG0REx-f-EKl3Gc",
     "Name": "Dragonfly",
-    "Description": "Some description to describe the best aspects of this place.",
+    "Description": "The overall mood at Dragonfly is sophisticated, relaxed and chic.",
     "FeaturedImage": "/images/dragonfly.jpeg",
-    "IsOpen": true,
-    "Rating": "1.5",
-    "Website": "https://google.com",
     "Tags": [
       "Asian",
       "Mexican",
       "Dinner"
-    ],
-    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
+    ]
   },
   {
+    "PlaceId": "ChIJkX1kfdqvOG0RARcbUB30cK0",
     "Name": "Chow",
     "Description": "Some description to describe the best aspects of this place.",
     "FeaturedImage": "/images/chow.jpeg",
-    "IsOpen": false,
-    "Rating": "4.5",
-    "Website": "https://google.com",
     "Tags": [
       "Dine in",
       "Bar",
       "Lounge"
-    ],
-    "Address": "70 Victoria Street, Te Aro, Wellington 6011"
+    ]
   },
   {
-    "Name": "Soulshack",
+    "PlaceId": "ChIJzb6E9W1TP20RiHOcR9QvYVc",
+    "Name": "Soul Shack",
     "Description": "Some description to describe the best aspects of this place.",
     "FeaturedImage": "/images/soulshack.jpeg",
-    "IsOpen": true,
-    "Rating": "4.5",
-    "Website": "https://google.com",
     "Tags": [
       "Lounge"
-    ],
-    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
+    ]
   },
   {
-    "Name": "Chows",
-    "Description": "Some description to describe the best aspects of this place.",
-    "FeaturedImage": "/images/chow.jpeg",
-    "IsOpen": false,
-    "Rating": "2.5",
-    "Website": "https://google.com",
+    "PlaceId": "ChIJU5pn0devOG0Rf3wD3nNJbAA",
+    "Name": "The Arborist",
+    "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
     "Tags": [
       "Mexican",
       "Dinner"
-    ],
-    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
-  },
-  {
-    "Name": "Soulshacks",
-    "Description": "Some description to describe the best aspects of this place.",
-    "FeaturedImage": "/images/soulshack.jpeg",
-    "IsOpen": true,
-    "Rating": "4.8",
-    "Website": "https://google.com",
-    "Tags": [],
-    "Address": "70 Courtenay Place, Te Aro, Wellington 6011"
+    ]
   }
 ]

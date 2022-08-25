@@ -20,7 +20,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/cgp4ing.css' }
-    ] 
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

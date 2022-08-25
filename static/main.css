@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  background-color: #222222;
+  background-color: var(--color-primary);
   transition: var(--transition);
   font-family: bely, sans-serif;
   font-weight: 300;
@@ -48,7 +48,7 @@ img {
   border-radius: 1em;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, ol, li, input {
+h1, h2, h3, h4, h5, h6, p, a, ol, li, input, select {
   font-family: bely, sans-serif;
   color: var(--color-primary);
   transition: var(--transition);
@@ -166,6 +166,10 @@ div.dice:hover {
 div.dice img {
   height: 100%;
   max-height: 100%;
+}
+
+#map {
+  display: none;
 }
 
 /*** RESULTS ***/

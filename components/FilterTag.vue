@@ -54,4 +54,13 @@ export default {
   background-color: var(--color-grey);
   color: var(--color-grey-light);
 }
+
+/* .main-tags.tags .tag {
+  background-color: white;
+  color: var(--color-primary);
+}
+.main-tags.tags .tag.active {
+  background-color: var(--color-primary);
+  color: white;
+} */
 </style>
