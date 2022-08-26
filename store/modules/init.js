@@ -2,24 +2,30 @@ export default {
   state() {
     return {
       places: [],
+      tags: [],
       google: {
         init: false,
         service: null,
         placesFound: [],
         placesDetails: [],
         placeSearchFields: ['name', 'place_id'],
-        placeDetailFields: ['ALL'],
+        placeDetailFields: ['opening_hours', 'rating', 'website', 'formatted_address', 'utc_offset_minutes', 'place_id'],
       },
       initComplete: false,
-      loadDelay: 2000
+      iconsFoodFolder: '/icons-food/',
+      requestLimiter: 500,
+      loadDelay: 1
     }
   },
   mutations: {
     definePlaces(state, places) {
       state.places = places;
     },
-    definePlaces(state, places) {
-      state.places = places;
+    defineTags(state, tags) {
+      tags.forEach(tag => {
+        tag.Icon = state.iconsFoodFolder + tag.Icon
+      });
+      state.tags = tags;
     },
     initComplete(state, status) {
       state.initComplete = status;
@@ -29,9 +35,10 @@ export default {
     async init(context) {
       await context.dispatch('googleInit')
       await context.dispatch('initPlaces')
-      await context.dispatch('googleFindPlaces')
-      await context.dispatch('googleQueryPlaces')
-      await context.dispatch('reDefinePlaces')
+      await context.dispatch('initTags')
+      context.dispatch('googleFindPlaces')
+      context.dispatch('googleQueryPlaces')
+      //context.dispatch('reDefinePlaces')
       context.commit('initComplete', true)
       context.dispatch('filterPlaces')
     },
@@ -55,23 +62,41 @@ export default {
         resolve();
       });
     },
+    async initTags(context) {
+      return new Promise(resolve => {
+        let tags = require('../../static/tags.json');
+        context.commit('defineTags', tags);
+        resolve();
+      });
+    },
     async googleFindPlaces(context) {
       return new Promise(resolve => {
         let service = context.state.google.service
         let places = context.state.places
         let placesfound = []
+        let requestLimiter = () => new Promise(resolve => setTimeout(resolve, context.state.requestLimiter))
+        
         // find place IDs
-        places.forEach((place, index) => {
-          service.findPlaceFromQuery({ query: place.Name + ' Wellington', fields: context.state.google.placeSearchFields }, (results, status) => {
-            placesfound.push({results, status, index})
-            if(index === (places.length - 1)) {
-              context.state.google.placesFound = placesfound
-              setTimeout(() => {
-                resolve();
-              }, context.state.loadDelay / 2);
-            }
-          });
-        });
+        let loop = async () => {
+          for (let index = 0; index < places.length; index++) {
+            await requestLimiter()
+            let place = places[index];
+            service.findPlaceFromQuery({ query: place.Name + ' Wellington', fields: context.state.google.placeSearchFields }, (results, status) => {
+              console.log('Request sent')
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                placesfound.push({results, status, index})
+                if(index === (places.length - 1)) {
+                  context.state.google.placesFound = placesfound
+                  resolve();
+                }
+              }
+              else {
+                console.log('Google fetch status:', status)
+              }
+            });
+          }
+        }
+        loop()
       });
     },
     async googleQueryPlaces(context) {
@@ -80,24 +105,33 @@ export default {
         let placeDetailFields = context.state.google.placeDetailFields
         let placesFound = context.state.google.placesFound
         let placesDetails = []
+        let requestLimiter = () => new Promise(resolve => setTimeout(resolve, context.state.requestLimiter))
 
         // find place details
-        placesFound.forEach((place, index) => {
-          if (place.status === google.maps.places.PlacesServiceStatus.OK) {
+        let loop = async () => {
+          for (let index = 0; index < placesFound.length; index++) {
+            await requestLimiter()
+            let place = placesFound[index];
             service.getDetails({
               placeId: place.results[0].place_id,
               fields: placeDetailFields
             }, (results, status) => {
-              placesDetails.push(results)
-              if(index === (placesFound.length - 1)) {
-                context.state.google.placesDetails = placesDetails
-                setTimeout(() => {
+              console.log('Request sent')
+              // check request was successful
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                placesDetails.push(results)
+                if(index === (placesFound.length - 1)) {
+                  context.state.google.placesDetails = placesDetails
                   resolve();
-                }, context.state.loadDelay / 2);
+                }
               }
-            });
+              else {
+                console.log('Google fetch status:', status)
+              }
+            })
           }
-        });
+        }
+        loop()
       });
     },
     async reDefinePlaces(context) {
@@ -108,16 +142,26 @@ export default {
         // change metrics of each location to Google metrics
         places.forEach((place, index) => {
           // filter places so that only places found by Google are indexed
-          let foundPlace = googlePlaces.filter(googlePlace => googlePlace.place_id === place.PlaceId)[0]
+          let foundPlace = googlePlaces.filter(googlePlace => {
+            // check if place was fetched by Google
+            if(googlePlace !== null) {
+              if(googlePlace.place_id === place.PlaceId) {
+                return true
+              }
+              else {
+                return false
+              }
+            }
+          }
+          )[0]
           // place not found and therefore not indexed
           if(foundPlace === undefined) {
-            console.log("Google place match not found for", place.Name, "check place_id to index")
+            console.log("Google place match not found for", place.Name, "check place_id to index. Or load time was insufficient")
           }
           // place found - set values and index
           else {
             place.Rating = foundPlace.rating
             place.IsOpen = foundPlace.opening_hours.isOpen()
-            place.Directions = foundPlace.url
             if(place.Website === undefined) {
               place.Website = foundPlace.website
             }
@@ -130,10 +174,11 @@ export default {
             // add indexed and edited place to found places
             foundPlaces.push(place)
             // once all places are indexed, push them to state
-            if(index === (places.length - 1)) {
-              context.commit('definePlaces', foundPlaces);
-              resolve();
-            }
+          }
+          // check if all places have been checked
+          if(index === (places.length - 1)) {
+            context.commit('definePlaces', foundPlaces);
+            resolve();
           }
         });
       });
@@ -145,6 +190,9 @@ export default {
     },
     getInitComplete(state) {
       return state.initComplete
+    },
+    getTags(state) {
+      return state.tags
     }
   }
 }

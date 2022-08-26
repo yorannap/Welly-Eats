@@ -1,51 +1,278 @@
 [
   {
-    "PlaceId": "ChIJ6fX4gtCvOG0REx-f-EKl3Gc",
     "Name": "Dragonfly",
+    "PlaceId": "ChIJ6fX4gtCvOG0REx-f-EKl3Gc",
     "Description": "The overall mood at Dragonfly is sophisticated, relaxed and chic.",
     "FeaturedImage": "/images/dragonfly.jpeg",
     "Tags": [
       "Asian",
-      "Mexican",
-      "Dinner"
+      "Dine"
     ]
   },
   {
-    "PlaceId": "ChIJkX1kfdqvOG0RARcbUB30cK0",
     "Name": "Chow",
-    "Description": "Some description to describe the best aspects of this place.",
+    "PlaceId": "ChIJkX1kfdqvOG0RARcbUB30cK0",
+    "Description": "Fresh Asian Cuisine. Vegetarian and Vegan friendly with Gluten and Dairy Free options.",
     "FeaturedImage": "/images/chow.jpeg",
     "Tags": [
-      "Dine in",
-      "Bar",
-      "Lounge"
+      "Dine",
+      "Asian"
     ]
   },
   {
-    "PlaceId": "ChIJzb6E9W1TP20RiHOcR9QvYVc",
     "Name": "Soul Shack",
-    "Description": "Some description to describe the best aspects of this place.",
+    "PlaceId": "ChIJzb6E9W1TP20RiHOcR9QvYVc",
+    "Description": "Soul Shack became a regional cult hit for its insane spice levels and original recipe Nashville Hot Chicken.",
     "FeaturedImage": "/images/soulshack.jpeg",
     "Tags": [
-      "Lounge"
+      "Burger",
+      "Chips"
     ]
   },
   {
-    "PlaceId": "ChIJU5pn0devOG0Rf3wD3nNJbAA",
     "Name": "The Arborist",
+    "PlaceId": "ChIJU5pn0devOG0Rf3wD3nNJbAA",
     "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
+    "FeaturedImage": "/images/the-arborist.jpg",
     "Tags": [
-      "Mexican",
-      "Dinner"
+      "Bar",
+      "Dine"
     ]
   },
   {
-    "PlaceId": "ChIJ1eTz41-vOG0Rf6_yfnJjR40",
     "Name": "Dirty Burger",
-    "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
+    "PlaceId": "ChIJ1eTz41-vOG0Rf6_yfnJjR40",
+    "Description": "Burgers, sides and shakes to hold it down!",
+    "FeaturedImage": "/images/dirty-burger.jpg",
     "Tags": [
-      "Mexican",
-      "Dinner"
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "ReBurger",
+    "PlaceId": "ChIJp74KsQ-vOG0RkqWSeXf3TII",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/re-burger.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "Fred's Sandwiches",
+    "PlaceId": "ChIJ81Ln3POvOG0R_tXeaPRLbeQ",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/freds-sandwiches.jpeg",
+    "Tags": [
+      "Sandwich"
+    ]
+  },
+  {
+    "Name": "Dragonfly",
+    "PlaceId": "ChIJ6fX4gtCvOG0REx-f-EKl3Gc",
+    "Description": "The overall mood at Dragonfly is sophisticated, relaxed and chic.",
+    "FeaturedImage": "/images/dragonfly.jpeg",
+    "Tags": [
+      "Asian",
+      "Dine"
+    ]
+  },
+  {
+    "Name": "Chow",
+    "PlaceId": "ChIJkX1kfdqvOG0RARcbUB30cK0",
+    "Description": "Fresh Asian Cuisine. Vegetarian and Vegan friendly with Gluten and Dairy Free options.",
+    "FeaturedImage": "/images/chow.jpeg",
+    "Tags": [
+      "Dine",
+      "Asian"
+    ]
+  },
+  {
+    "Name": "Soul Shack",
+    "PlaceId": "ChIJzb6E9W1TP20RiHOcR9QvYVc",
+    "Description": "Soul Shack became a regional cult hit for its insane spice levels and original recipe Nashville Hot Chicken.",
+    "FeaturedImage": "/images/soulshack.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "The Arborist",
+    "PlaceId": "ChIJU5pn0devOG0Rf3wD3nNJbAA",
+    "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
+    "FeaturedImage": "/images/the-arborist.jpg",
+    "Tags": [
+      "Bar",
+      "Dine"
+    ]
+  },
+  {
+    "Name": "Dirty Burger",
+    "PlaceId": "ChIJ1eTz41-vOG0Rf6_yfnJjR40",
+    "Description": "Burgers, sides and shakes to hold it down!",
+    "FeaturedImage": "/images/dirty-burger.jpg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "ReBurger",
+    "PlaceId": "ChIJp74KsQ-vOG0RkqWSeXf3TII",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/re-burger.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "Fred's Sandwiches",
+    "PlaceId": "ChIJ81Ln3POvOG0R_tXeaPRLbeQ",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/freds-sandwiches.jpeg",
+    "Tags": [
+      "Sandwich"
+    ]
+  },
+  {
+    "Name": "Dragonfly",
+    "PlaceId": "ChIJ6fX4gtCvOG0REx-f-EKl3Gc",
+    "Description": "The overall mood at Dragonfly is sophisticated, relaxed and chic.",
+    "FeaturedImage": "/images/dragonfly.jpeg",
+    "Tags": [
+      "Asian",
+      "Dine"
+    ]
+  },
+  {
+    "Name": "Chow",
+    "PlaceId": "ChIJkX1kfdqvOG0RARcbUB30cK0",
+    "Description": "Fresh Asian Cuisine. Vegetarian and Vegan friendly with Gluten and Dairy Free options.",
+    "FeaturedImage": "/images/chow.jpeg",
+    "Tags": [
+      "Dine",
+      "Asian"
+    ]
+  },
+  {
+    "Name": "Soul Shack",
+    "PlaceId": "ChIJzb6E9W1TP20RiHOcR9QvYVc",
+    "Description": "Soul Shack became a regional cult hit for its insane spice levels and original recipe Nashville Hot Chicken.",
+    "FeaturedImage": "/images/soulshack.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "The Arborist",
+    "PlaceId": "ChIJU5pn0devOG0Rf3wD3nNJbAA",
+    "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
+    "FeaturedImage": "/images/the-arborist.jpg",
+    "Tags": [
+      "Bar",
+      "Dine"
+    ]
+  },
+  {
+    "Name": "Dirty Burger",
+    "PlaceId": "ChIJ1eTz41-vOG0Rf6_yfnJjR40",
+    "Description": "Burgers, sides and shakes to hold it down!",
+    "FeaturedImage": "/images/dirty-burger.jpg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "ReBurger",
+    "PlaceId": "ChIJp74KsQ-vOG0RkqWSeXf3TII",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/re-burger.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "Fred's Sandwiches",
+    "PlaceId": "ChIJ81Ln3POvOG0R_tXeaPRLbeQ",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/freds-sandwiches.jpeg",
+    "Tags": [
+      "Sandwich"
+    ]
+  },
+  {
+    "Name": "Dragonfly",
+    "PlaceId": "ChIJ6fX4gtCvOG0REx-f-EKl3Gc",
+    "Description": "The overall mood at Dragonfly is sophisticated, relaxed and chic.",
+    "FeaturedImage": "/images/dragonfly.jpeg",
+    "Tags": [
+      "Asian",
+      "Dine"
+    ]
+  },
+  {
+    "Name": "Chow",
+    "PlaceId": "ChIJkX1kfdqvOG0RARcbUB30cK0",
+    "Description": "Fresh Asian Cuisine. Vegetarian and Vegan friendly with Gluten and Dairy Free options.",
+    "FeaturedImage": "/images/chow.jpeg",
+    "Tags": [
+      "Dine",
+      "Asian"
+    ]
+  },
+  {
+    "Name": "Soul Shack",
+    "PlaceId": "ChIJzb6E9W1TP20RiHOcR9QvYVc",
+    "Description": "Soul Shack became a regional cult hit for its insane spice levels and original recipe Nashville Hot Chicken.",
+    "FeaturedImage": "/images/soulshack.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "The Arborist",
+    "PlaceId": "ChIJU5pn0devOG0Rf3wD3nNJbAA",
+    "Description": "Offering a selection of nature inspired seasonal dishes & cocktails.",
+    "FeaturedImage": "/images/the-arborist.jpg",
+    "Tags": [
+      "Bar",
+      "Dine"
+    ]
+  },
+  {
+    "Name": "Dirty Burger",
+    "PlaceId": "ChIJ1eTz41-vOG0Rf6_yfnJjR40",
+    "Description": "Burgers, sides and shakes to hold it down!",
+    "FeaturedImage": "/images/dirty-burger.jpg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "ReBurger",
+    "PlaceId": "ChIJp74KsQ-vOG0RkqWSeXf3TII",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/re-burger.jpeg",
+    "Tags": [
+      "Burger",
+      "Chips"
+    ]
+  },
+  {
+    "Name": "Fred's Sandwiches",
+    "PlaceId": "ChIJ81Ln3POvOG0R_tXeaPRLbeQ",
+    "Description": "Bangin' out boss Wellington burgers, loaded fries and other 🔥 feeds just for you my friend.",
+    "FeaturedImage": "/images/freds-sandwiches.jpeg",
+    "Tags": [
+      "Sandwich"
     ]
   }
 ]

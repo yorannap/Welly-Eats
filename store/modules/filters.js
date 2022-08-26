@@ -104,7 +104,8 @@ export default {
       state.filter.tags = []
     },
     defineCanClear(state, initState) {
-      if(initState.places.length === state.filteredPlaces.length) {
+      if((initState.places.length === state.filteredPlaces.length) && 
+         (state.filter.tags.length === 0)) {
         state.filter.canClear = false
       }
       else {

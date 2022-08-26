@@ -6,8 +6,8 @@
       <div class="search">
         <input 
           type="Search" 
-          aria-label="Search place name or address..." 
-          placeholder="Search place name or address..."
+          aria-label="Search place name or location..." 
+          placeholder="Search place name or location..."
           :value="getFilterSearchTerm"
           @input="handleSearch"
         >

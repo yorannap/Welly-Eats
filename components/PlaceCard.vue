@@ -80,6 +80,11 @@ export default {
 }
 
 .tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
+  margin: auto;
   margin-top: 10px;
 }
 </style>

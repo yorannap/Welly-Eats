@@ -1,0 +1,34 @@
+[
+  {
+    "Name": "Serve",
+    "Icon": "Icon_serve.png"
+  },
+  {
+    "Name": "Bar",
+    "Icon": "Icon_cocktail.png"
+  },
+  {
+    "Name": "Burger",
+    "Icon": "Icon_burger.png"
+  },
+  {
+    "Name": "Mexican",
+    "Icon": "Icon_taco.png"
+  },
+  {
+    "Name": "Dine",
+    "Icon": "Icon_serve.png"
+  },
+  {
+    "Name": "Asian",
+    "Icon": "Icon_rolls.png"
+  },
+  {
+    "Name": "Chips",
+    "Icon": "Icon_fries.png"
+  },
+  {
+    "Name": "Sandwich",
+    "Icon": "Icon_sandwich.png"
+  }
+]
