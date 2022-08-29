@@ -1,6 +1,7 @@
 <template>
   <div class="isopen">
-    <p v-if="IsOpen" class="open">Open now</p>
+    <p v-if="IsOpen === undefined" class="loading">Loading</p>
+    <p v-else-if="IsOpen" class="open">Open now</p>
     <p v-else class="closed">Closed now</p>
   </div>
 </template>

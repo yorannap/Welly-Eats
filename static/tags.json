@@ -30,5 +30,13 @@
   {
     "Name": "Sandwich",
     "Icon": "Icon_sandwich.png"
+  },
+  {
+    "Name": "Fresh",
+    "Icon": "Icon_vegetables.png"
+  },
+  {
+    "Name": "Pizza",
+    "Icon": "Icon_pizza.png"
   }
 ]

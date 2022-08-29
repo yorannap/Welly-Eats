@@ -5,7 +5,7 @@ export default {
       filter: {
         search: '',
         tags: [],
-        order: 'Rating',
+        order: 'Random',
         canClear: false
       },
       lastDiceRoll: 0
@@ -74,9 +74,18 @@ export default {
       let order = state.filter.order
       let orderedList = state.filteredPlaces
 
-      if (order === 'Rating') {
+      if (order === 'Random') {
         orderedList.sort(function (a, b) {
-          return b.Rating - a.Rating
+          let random1 = Math.random()
+          let random2 = Math.random()
+          return random1 - random2
+        })
+      }
+      else if (order === 'Rating') {
+        orderedList.sort(function (a, b) {
+          if(a.Rating !== undefined) {
+            return b.Rating - a.Rating
+          }
         })
       }
       else if (order === 'Name') {
@@ -91,7 +100,7 @@ export default {
       let random
       // roll until it's differnt from last roll
       while (true) {
-        random = Math.floor(Math.random() * places.length);
+        random = Math.floor(Math.random() * places.length)
         if (random !== state.lastDiceRoll) {            
           break;
         } 

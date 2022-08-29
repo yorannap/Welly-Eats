@@ -7,6 +7,7 @@
       <span v-else-if="getFilteredPlaces.length > 1">
         places by
         <select id="order" name="order" @change="handleOrder($event.target.value)">
+          <option value="Random">Random</option>
           <option value="Rating">Rating</option>
           <option value="Name">Name</option>
         </select>

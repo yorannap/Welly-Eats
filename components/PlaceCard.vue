@@ -3,10 +3,7 @@
     <place-image :PlaceImage="place.FeaturedImage"></place-image>
     <place-pin :PlaceName="place.Name + ' Wellington'"></place-pin>
     <h3 class="title">{{ place.Name }}</h3>
-    <div class="details">
-      <is-open :IsOpen="place.IsOpen"></is-open>
-      <place-rating :Rating="place.Rating"></place-rating>
-    </div>
+    <place-details :place="place"></place-details>
     <p class="description" :title="place.Description">{{ place.Description }}</p>
     <div class="tags">
       <filter-tag v-for="(tag, id) in place.Tags" :key="id" :PlaceTag="tag"></filter-tag>
@@ -16,8 +13,7 @@
 </template>
 
 <script>
-import IsOpen from '../components/IsOpen.vue'
-import PlaceRating from '../components/PlaceRating.vue'
+import PlaceDetails from '../components/PlaceDetails.vue'
 import PlaceImage from '../components/PlaceImage.vue'
 import PlacePin from '../components/PlacePin.vue'
 import FilterTag from '../components/FilterTag.vue'
@@ -27,8 +23,7 @@ export default {
     place: Object
   },
   components: {
-    IsOpen,
-    PlaceRating,
+    PlaceDetails,
     PlaceImage,
     PlacePin,
     FilterTag
@@ -52,17 +47,6 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.details {
-  padding-top: 3px;
-  padding-bottom: 10px;
-}
-
-.details p,
-.details div {
-  display: inline;
-  color: var(--color-grey);
 }
 
 .description {
