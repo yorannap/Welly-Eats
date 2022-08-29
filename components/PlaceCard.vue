@@ -43,6 +43,18 @@ export default {
   padding: 35px 25px;
 }
 
+@media screen and (max-width: 800px) {
+  .card {
+    width: 48%
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 100%
+  }
+}
+
 .card h3 {
   white-space: nowrap;
   overflow: hidden;
