@@ -9,12 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "child_process": "^1.0.2",
     "core-js": "^3.19.3",
-    "fs": "0.0.1-security",
-    "googleapis": "^105.0.0",
-    "http2": "^3.3.7",
-    "net": "^1.0.2",
     "nuxt": "^2.15.8",
     "tls": "0.0.1",
     "vue": "^2.6.14",

@@ -84,7 +84,7 @@ export default {
       else if (order === 'Rating') {
         orderedList.sort(function (a, b) {
           if(a.Rating !== undefined) {
-            return b.Rating - a.Rating
+            return b.Rating - a.Rating;
           }
         })
       }
