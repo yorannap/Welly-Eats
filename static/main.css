@@ -182,14 +182,6 @@ div.dice img {
   display: none;
 }
 
-/*** RESULTS ***/
-
-.results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 /** SKELETON **/ 
 
 .details .skeleton {

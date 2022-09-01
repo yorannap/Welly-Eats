@@ -123,7 +123,7 @@ export default {
     }
   },
   actions: {
-    filterOrder({ commit }, order) {
+    filterOrder({ commit, dispatch }, order) {
       commit('setOrder', order)
       commit('orderPlaces')
     },
@@ -139,6 +139,7 @@ export default {
       context.commit('filterPlaces', context.rootState.moduleInit)
       context.commit('orderPlaces')
       context.commit('defineCanClear', context.rootState.moduleInit)
+      context.dispatch("googleQueryPlaces")
     },
     rollDice(context) {
       context.commit('clearFilters')

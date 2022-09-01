@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :data-place-id="place.PlaceId">
     <place-image :PlaceImage="place.FeaturedImage"></place-image>
     <place-pin :PlaceName="place.Name + ' Wellington'"></place-pin>
     <h3 class="title">{{ place.Name }}</h3>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import gsap from "gsap";
+import { mapGetters } from "vuex";
 import PlaceDetails from '../components/PlaceDetails.vue'
 import PlaceImage from '../components/PlaceImage.vue'
 import PlacePin from '../components/PlacePin.vue'
@@ -27,7 +29,43 @@ export default {
     PlaceImage,
     PlacePin,
     FilterTag
-  }
+  },
+  computed: {
+    //...mapGetters([ "getFilteredPlaces"])
+  },
+  /* watch: {
+    // whenever question changes, this function will run
+    getFilteredPlaces(newPlaces, oldPlaces) {
+      //this.animateCards(newPlaces, oldPlaces)
+        console.log("TRIGGER")
+      newPlaces.forEach(place => {
+        let card = document.querySelectorAll(`.card[data-place-id='${place.PlaceId}']`);
+        //console.log("CARD: ", place.Name, card)
+        gsap.from(card, {
+          scale: 0.8,
+          y: "-50px",
+          opacity: 0,
+          ease: "power4.out",
+          duration: 1
+        });
+      });
+    }
+  }, */
+  /* methods: {
+    animateCards(newPlaces, oldPlaces) {
+      //console.log(newPlaces, oldPlaces)
+      let oldPlacesIds = []
+
+      /* gsap.from(cards, {
+        scale: 1,
+        y: "50px",
+        opacity: 0,
+        ease: "power4.out",
+        duration: 1,
+        delay: 1
+      });
+    }
+  }, */
 };
 </script>
 

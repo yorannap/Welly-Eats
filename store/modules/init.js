@@ -92,11 +92,6 @@ export default {
         }
         for (let index = 0; index < places.length; index++) {
           await requestLimiter()
-          // retrigger if filtered places has changed
-          if(context.rootState.moduleFilters.filteredPlaces[0].Name !== places[0].Name) {
-            context.dispatch("googleQueryPlaces")
-            break
-          }
           let place = places[index];
           // check if place has already been fetched
           if(place.GoogleFetched !== true) {
@@ -119,9 +114,9 @@ export default {
         places.forEach(place => {
           // place found - set values
           if(place.PlaceId === googlePlace.place_id) {
+            place.GoogleFetched = true
             place.Rating = googlePlace.rating
             place.IsOpen = googlePlace.opening_hours.isOpen()
-            place.GoogleFetched = true
             if(place.Website === undefined) {
               place.Website = googlePlace.website
             }

@@ -23,13 +23,14 @@
       </div>
       <filter-summary></filter-summary>
     </div>
-    <div class="results">
+     <TransitionGroup class="results" name="cards" tag="div" appear>
       <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place"></place-card>
-    </div>
+    </TransitionGroup>
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
 import { mapGetters } from "vuex";
 import PlaceCard from '../components/PlaceCard.vue'
 import FilterTag from '../components/FilterTag.vue'
@@ -46,13 +47,47 @@ export default {
       "getFilteredPlaces", "getFilterSearchTerm", "getAllTags", "getActiveTags"
     ])
   },
+  /* watch: {
+    // whenever question changes, this function will run
+    getFilteredPlaces(newPlaces, oldPlaces) {
+      this.animateCards(newPlaces, oldPlaces)
+    }
+  }, */
   methods: {
     handleSearch(e) {
       this.$store.dispatch('filterSearch', e.target.value)
     },
     rollDice() {
       this.$store.dispatch('rollDice')
-    }
+    },
+    /* animateCardEnter(el, done) {
+      gsap.from(el, {
+        scale: 0.8,
+        y: "50px",
+        opacity: 0,
+        ease: "power4.out",
+        duration: 0.5,
+        onComplete: done
+      });
+    },
+    animateCardLeave(el, done) {
+      gsap.to(el, {
+        scale: 0.8,
+        y: "-50px",
+        opacity: 0,
+        ease: "power4.in",
+        duration: 0.5,
+        onComplete: done
+      });
+    } */
   }
 }
 </script>
+
+<style>
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>
