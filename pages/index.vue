@@ -23,9 +23,11 @@
       </div>
       <filter-summary></filter-summary>
     </div>
-     <TransitionGroup class="results" name="cards" tag="div" appear>
-      <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place"></place-card>
-    </TransitionGroup>
+     <Transition @enter="animateCardEnter">
+      <div class="results">
+        <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place"></place-card>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -37,6 +39,11 @@ import FilterTag from '../components/FilterTag.vue'
 import FilterSummary from '../components/FilterSummary.vue'
 
 export default {
+  data() {
+    return {
+      initAnimationComplete: false
+    }
+  },
   components: {
     PlaceCard,
     FilterTag,
@@ -47,12 +54,11 @@ export default {
       "getFilteredPlaces", "getFilterSearchTerm", "getAllTags", "getActiveTags"
     ])
   },
-  /* watch: {
-    // whenever question changes, this function will run
+  watch: {
     getFilteredPlaces(newPlaces, oldPlaces) {
-      this.animateCards(newPlaces, oldPlaces)
+      this.animateCardEnter()
     }
-  }, */
+  },
   methods: {
     handleSearch(e) {
       this.$store.dispatch('filterSearch', e.target.value)
@@ -60,27 +66,50 @@ export default {
     rollDice() {
       this.$store.dispatch('rollDice')
     },
-    /* animateCardEnter(el, done) {
-      gsap.from(el, {
+    animateCardEnter(el, done) {
+      el = document.querySelector('.results')
+      gsap.fromTo(el, {
         scale: 0.8,
         y: "50px",
         opacity: 0,
-        ease: "power4.out",
-        duration: 0.5,
+      },
+      {
+        scale: 1,
+        y: "0px",
+        opacity: 1,
+        ease: "expo.out",
+        duration: 0.75,
+        onComplete: done
+      });
+    }
+  },
+  transition: {
+    name: "home",
+    css: false,
+    appear: true,
+    enter(el, done) {
+      el = document.querySelectorAll('#page .heading > *')
+      gsap.fromTo(el, {
+        scale: 0.8,
+        y: "50px",
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        y: "0px",
+        opacity: 1,
+        ease: "expo.out",
+        duration: 0.75,
+        stagger: 0.1,
         onComplete: done
       });
     },
-    animateCardLeave(el, done) {
-      gsap.to(el, {
-        scale: 0.8,
-        y: "-50px",
-        opacity: 0,
-        ease: "power4.in",
-        duration: 0.5,
-        onComplete: done
-      });
-    } */
-  }
+    afterEnter() {
+      this.animateCardEnter()
+      this.initAnimationComplete = true
+      console.log(this.initAnimationComplete)
+    }
+  },
 }
 </script>
 
