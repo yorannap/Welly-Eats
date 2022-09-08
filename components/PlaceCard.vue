@@ -31,14 +31,14 @@ export default {
     FilterTag
   },
   computed: {
-    //...mapGetters([ "getFilteredPlaces"])
+    ...mapGetters([ "getFilteredPlaces"])
   },
-  /* watch: {
+  watch: {
     // whenever question changes, this function will run
     getFilteredPlaces(newPlaces, oldPlaces) {
       //this.animateCards(newPlaces, oldPlaces)
-        console.log("TRIGGER")
-      newPlaces.forEach(place => {
+        //console.log("TRIGGER")
+      /* newPlaces.forEach(place => {
         let card = document.querySelectorAll(`.card[data-place-id='${place.PlaceId}']`);
         //console.log("CARD: ", place.Name, card)
         gsap.from(card, {
@@ -48,15 +48,15 @@ export default {
           ease: "power4.out",
           duration: 1
         });
-      });
+      }); */
     }
-  }, */
-  /* methods: {
+  },
+  methods: {
     animateCards(newPlaces, oldPlaces) {
-      //console.log(newPlaces, oldPlaces)
+      // console.log(newPlaces, oldPlaces)
       let oldPlacesIds = []
 
-      /* gsap.from(cards, {
+      gsap.from(cards, {
         scale: 1,
         y: "50px",
         opacity: 0,
@@ -65,7 +65,7 @@ export default {
         delay: 1
       });
     }
-  }, */
+  },
 };
 </script>
 

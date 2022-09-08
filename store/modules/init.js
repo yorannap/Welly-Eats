@@ -57,7 +57,7 @@ export default {
           place.GoogleFetched = false
           place.IsOpen = undefined
           place.Rating = undefined
-          place.Address = ""
+          place.Address = undefined
           place.Website = `https://www.google.com/search?q=${place.Name}`
         });
         context.commit('definePlaces', places);
