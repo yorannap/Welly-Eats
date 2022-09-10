@@ -13,14 +13,34 @@
 </template>
 
 <script>
+import gsap from "gsap";
 import { mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapGetters([ "getInitComplete"])
   },
+  transition: {
+    name: "home",
+    css: false,
+    appear: true,
+    enter(el, done) {
+      },
+    afterEnter() {
+      //this.initAnimationComplete = true
+    }
+  },
   mounted() {
     this.$store.dispatch("init")
+    let badge = document.querySelectorAll('#badge')
+    gsap.from(badge, {
+      borderRadius: "50px", 
+      scale: 1.2,
+      top: "45%",
+      ease: "power4.inOut",
+      duration: 2,
+      delay: 1
+    });
   }
 }
 </script>

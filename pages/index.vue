@@ -1,8 +1,10 @@
 <template>
   <div id="page">
     <div class="heading">
-      <p class="subtitle">Wellington Eats</p>
-      <h1 class="title">What's the mood?</h1>
+      <div class="title">
+        <p class="subtitle">Wellington Eats</p>
+        <h1 class="title">What's the mood?</h1>
+      </div>
       <div class="search">
         <input 
           type="Search" 
@@ -23,11 +25,11 @@
       </div>
       <filter-summary></filter-summary>
     </div>
-     <Transition @enter="animateCardEnter">
+    <div id="result-container">
       <div class="results">
-        <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place"></place-card>
+        <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place" :index="id"></place-card>
       </div>
-    </Transition>
+    </div>
   </div>
 </template>
 
@@ -39,11 +41,6 @@ import FilterTag from '../components/FilterTag.vue'
 import FilterSummary from '../components/FilterSummary.vue'
 
 export default {
-  data() {
-    return {
-      initAnimationComplete: false
-    }
-  },
   components: {
     PlaceCard,
     FilterTag,
@@ -51,7 +48,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getFilteredPlaces", "getFilterSearchTerm", "getAllTags", "getActiveTags"
+      "getFilteredPlaces", "getFilterSearchTerm", "getAllTags", "getActiveTags", "getInitAnimationComplete"
     ])
   },
   watch: {
@@ -67,20 +64,22 @@ export default {
       this.$store.dispatch('rollDice')
     },
     animateCardEnter(el, done) {
-      el = document.querySelector('.results')
-      gsap.fromTo(el, {
-        scale: 0.8,
-        y: "50px",
-        opacity: 0,
-      },
-      {
-        scale: 1,
-        y: "0px",
-        opacity: 1,
-        ease: "expo.out",
-        duration: 0.75,
-        onComplete: done
-      });
+      if(this.getInitAnimationComplete) {
+        el = document.querySelector('.results')
+        gsap.fromTo(el, {
+          scale: 0.8,
+          y: "50px",
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          y: "0px",
+          opacity: 1,
+          ease: "expo.out",
+          duration: 0.75,
+          onComplete: done
+        });
+      }
     }
   },
   transition: {
@@ -88,26 +87,29 @@ export default {
     css: false,
     appear: true,
     enter(el, done) {
-      el = document.querySelectorAll('#page .heading > *')
-      gsap.fromTo(el, {
+      let heading = document.querySelectorAll('#page .heading > *')
+      let cards = document.querySelectorAll('#result-container')
+      let body = [...heading]
+      gsap.from(body, {
         scale: 0.8,
         y: "50px",
         opacity: 0,
-      },
-      {
-        scale: 1,
-        y: "0px",
-        opacity: 1,
-        ease: "expo.out",
+        ease: "power4.out",
         duration: 0.75,
         stagger: 0.1,
+        delay: 2,
+      });
+      gsap.from(cards, {
+        scale: 0.9,
+        opacity: 0,
+        ease: "power4.out",
+        duration: 1,
+        delay: 2.75,
         onComplete: done
       });
     },
     afterEnter() {
-      this.animateCardEnter()
-      this.initAnimationComplete = true
-      console.log(this.initAnimationComplete)
+      this.$store.state.moduleInit.initAnimationComplete = true
     }
   },
 }

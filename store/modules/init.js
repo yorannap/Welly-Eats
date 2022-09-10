@@ -8,6 +8,7 @@ export default {
         placeDetailFields: ['opening_hours', 'rating', 'website', 'formatted_address', 'utc_offset_minutes', 'place_id', 'name'],
       },
       initComplete: false,
+      initAnimationComplete: false,
       iconsFoodFolder: '/icons-food/',
       requestLimiter: 500,
       loadDelay: 0
@@ -137,6 +138,9 @@ export default {
     },
     getInitComplete(state) {
       return state.initComplete
+    },
+    getInitAnimationComplete(state) {
+      return state.initAnimationComplete
     },
     getTags(state) {
       return state.tags
