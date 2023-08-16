@@ -46,10 +46,13 @@ export default {
 }
 
 #order, .clear-filters {
+  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
   font-size: 1em;
   background: none;
-  padding: 0;
+  padding: 0px 4px;
+  border-radius: 0;
   border: none;
   text-transform: lowercase;
   border-bottom: 1px solid var(--color-primary);

@@ -116,8 +116,8 @@ export default {
           // place found - set values
           if(place.PlaceId === googlePlace.place_id) {
             place.GoogleFetched = true
-            place.Rating = googlePlace.rating
-            place.IsOpen = googlePlace.opening_hours.isOpen()
+            place.Rating = googlePlace.rating != undefined ? googlePlace.rating : 4.5;
+            place.IsOpen = googlePlace.opening_hours != undefined ? googlePlace.opening_hours.isOpen() : false;
             if(place.Website === undefined) {
               place.Website = googlePlace.website
             }
