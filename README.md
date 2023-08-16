@@ -1,4 +1,4 @@
-# Welly
+# Wellington Eats - Food Finder
 
 ## Build Setup
 
