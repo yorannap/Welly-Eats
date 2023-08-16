@@ -30,6 +30,7 @@
         <place-card  v-for="(place, id) in getFilteredPlaces" :key="id" :place="place" :index="id"></place-card>
       </div>
     </div>
+    <p class="credit">Made with ♥ by <a href="https://yorannap.me/" target="_blank">Yoran</a></p>
   </div>
 </template>
 
@@ -120,5 +121,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.credit {
+  text-align: center;
 }
 </style>
